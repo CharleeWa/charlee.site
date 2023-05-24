@@ -1,0 +1,48 @@
+---
+import Layout from '@layouts/Layout.astro'
+import ProjectsListLight from '@components/projectsList/projectsListLight.astro'
+import PostsListLight from '@components/postsList/postsListLight.astro'
+import Link from '@components/contactLink.astro'
+const classList = [
+  'opacity-0',
+  'animate-slideUp',
+  'animate-fill-both',
+  'font-sans',
+  'font-medium',
+  'mt-8',
+];
+---
+
+<Layout title="charlee">
+  <article class="prose">
+    <section class:list={['animate-delay-50 ', classList]}>
+      <p class="font-bold font-serif text-xl">charlee</p>
+    </section>
+    <section class:list={['animate-delay-150', classList]}>
+      <p>
+        Hi, I'm Charlie Wang, a front-end engineer living in the beautiful city of Jinan.
+      </p>
+    </section>
+    <section class:list={['animate-delay-300', classList]}>
+      <ProjectsListLight />
+    </section>
+    <section class:list={['animate-delay-450', classList]}>
+      <PostsListLight />
+    </section>
+    <section class:list={['animate-delay-750', classList]}>
+      <Link />
+    </section>
+  </article>
+</Layout>
+
+<style is:global>
+  article a {
+    @apply linkBase;
+  }
+  #blockTitle {
+    @apply md:text-base font-extrabold italic;
+  }
+  #blockTitle::before {
+    content: ":: ";
+  }
+</style>

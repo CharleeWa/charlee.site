@@ -1,0 +1,22 @@
+---
+import Layout from '@layouts/Layout.astro'
+const { title, pubDate, minutesRead, collection } = Astro.props.frontmatter
+---
+
+<Layout title={title}>
+  <main>
+    <article>
+      <section class="border-b borderBase pb-5 pt-5">
+        <p class="text-3xl font-bold">
+          {title}
+        </p>
+        <p class="text-sm text-dark-1 dark:text-gray-4">
+          {`${collection}/${pubDate}`} · {minutesRead}
+        </p>
+      </section>
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
